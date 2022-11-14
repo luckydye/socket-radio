@@ -1,13 +1,12 @@
 "use client";
 
 import QRCode from "qrcode";
-
-let init = false;
+import { useEffect } from "react";
 
 export default function QRRadio() {
-  const radioUrl = location.origin + "/proxy/3000/radio";
+  useEffect(() => {
+    const radioUrl = location.origin + "/proxy/3000/radio";
 
-  if (!init) {
     QRCode.toDataURL(radioUrl, {
       margin: 0,
     })
@@ -21,8 +20,7 @@ export default function QRRadio() {
       .catch((err) => {
         console.error(err);
       });
-    init = true;
-  }
+  }, []);
 
   return (
     <div id="qrcodediv">
