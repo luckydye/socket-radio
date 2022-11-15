@@ -4,13 +4,15 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "dev": "ts-node index.ts",
-    "build": "vite build"
+    "dev:host": "vite host",
+    "dev:client": "vite client",
+    "build": "vite build host && vite build client"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
+    "peerjs": "^1.4.7",
     "qrcode": "^1.5.1",
     "vite": "^3.2.3"
   },
