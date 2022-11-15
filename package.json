@@ -6,7 +6,8 @@
   "scripts": {
     "dev:host": "vite host",
     "dev:client": "vite client",
-    "build": "vite build host && vite build client"
+    "build": "vite build host && vite build client",
+    "start": "node server.mjs"
   },
   "author": "",
   "license": "ISC",
