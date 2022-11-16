@@ -17,7 +17,9 @@ QRCode.toDataURL(radioUrl, {
   });
 
 function connectToSocket() {
-  const socket = new WebSocket(`ws://${location.host}/`);
+  const socket = new WebSocket(
+    `${location.protocol === "https:" ? "wss" : "ws"}://${location.host}/`
+  );
 
   socket.onopen = () => {
     console.log("socket open");
