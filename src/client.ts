@@ -1,7 +1,7 @@
 import QRCode from "qrcode";
 import { captureAudio, initAudio, playbackAudio } from "./audio";
 
-const radioUrl = location.origin;
+const radioUrl = location.href;
 
 QRCode.toDataURL(radioUrl, {
   margin: 0,
@@ -17,7 +17,7 @@ QRCode.toDataURL(radioUrl, {
   });
 
 function connectToSocket() {
-  const socket = new WebSocket("ws://0.0.0.0:3001/");
+  const socket = new WebSocket(`ws://${location.host}/`);
 
   socket.onopen = () => {
     console.log("socket open");

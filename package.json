@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite build && ts-node index.ts",
     "dev:w": "vite --port=3000 --host=0.0.0.0",
-    "build": "vite build"
+    "build": "vite build",
+    "start": "ts-node index.ts"
   },
   "author": "",
   "license": "ISC",
@@ -14,6 +15,7 @@
     "express": "^4.18.2",
     "lit": "^2.4.1",
     "qrcode": "^1.5.1",
+    "ts-node": "^10.9.1",
     "vite": "^3.2.3",
     "web-audio-api": "^0.2.2",
     "ws": "^8.11.0"
