@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
+    "lit": "^2.4.1",
     "peerjs": "^1.4.7",
     "qrcode": "^1.5.1",
     "vite": "^3.2.3"
