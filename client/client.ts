@@ -4,23 +4,23 @@ import { Peer } from "peerjs";
 import AudioStreamMeterVertecal from "./components/AudioMeterVertical";
 
 function log(msg: string) {
-  document.write(`
+  const ele = document.createElement("div");
+  ele.innerHTML = `
     <div>
       ${msg}
     </div>
-  `);
+  `;
+  document.body.append(ele);
 }
 
 async function init() {
-  const peer = new Peer("cool-luckydye-peer-id-client");
+  const peer = new Peer();
 
   peer.on("call", (call) => {
     log("calling");
 
     call.on("stream", async (remoteStream) => {
       log("recieved stream");
-
-      console.log(remoteStream.getAudioTracks());
 
       const video = document.createElement("video");
       video.srcObject = remoteStream;
