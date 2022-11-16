@@ -1,13 +1,20 @@
+import AudioStreamMeterVertecal from "./components/AudioMeterVertical";
+
 // @ts-ignore
-const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+let audioCtx: AudioContext;
 
 export async function initAudio() {
+  audioCtx = new AudioContext();
+
   await audioCtx.audioWorklet.addModule("audio/capture.js");
   await audioCtx.audioWorklet.addModule("audio/player.js");
+  await audioCtx.audioWorklet.addModule("audio/meter.js");
 }
 
 window.onclick = () => {
-  audioCtx.resume();
+  if (audioCtx) {
+    audioCtx.resume();
+  }
 };
 
 export function captureAudio(
@@ -42,6 +49,10 @@ export function playbackAudio(): Speaker {
     channelCount: 2,
   });
   player.connect(audioCtx.destination);
+
+  const meter = new AudioStreamMeterVertecal(audioCtx, "output");
+  meter.setAudioSourceNode(player);
+  document.body.append(meter);
 
   player.onprocessorerror = console.error;
 

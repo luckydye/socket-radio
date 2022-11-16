@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
+    "lit": "^2.4.1",
     "qrcode": "^1.5.1",
     "vite": "^3.2.3",
     "web-audio-api": "^0.2.2",
